@@ -1,6 +1,6 @@
 
 
-def main():
+def part_1():
     depth = 0
     postition = 0
 
@@ -38,9 +38,41 @@ def main():
 
     return_string = "Final horizontal mulitplied by depth = " + str(hordep)
 
-    print(return_string)
+    return return_string
+
+def part_2():
+    depth = 0
+    position = 0
+    aim = 0
+
+    forward = []
+    down = []
+    up = []
+
+    with open('list.txt') as f:
+        lines = [line.rstrip() for line in f]
+
+    for i in range(len(lines)):
+        line = lines[i][-1]
+
+        if "forward" in lines[i]:
+            position += int(line)
+            depth += aim * int(line)
+
+        if "down" in lines[i]:
+            aim += int(line)
+        if "up" in lines[i]:
+            aim -= int(line)
+    
+    print("Horizontal position: " + str(position))
+    print("Depth: " + str(depth))
+
+    hordep = position * depth
+    return_string = "Final horizontal mulitplied by depth = " + str(hordep)
 
     return return_string
 
 if __name__ == "__main__":
-    main()
+    print(part_1())
+    print("-----------------------------")
+    print(part_2())
