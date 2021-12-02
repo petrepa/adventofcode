@@ -13,7 +13,9 @@ def part_1():
         if numbers[i] > numbers[i-1]:
             increased += 1
 
-    print("Part 1: " + str(increased))
+    return_string = ("Part 1: " + str(increased))
+
+    return return_string
 
 def part_2():
     increased = 0
@@ -30,8 +32,10 @@ def part_2():
         if numbers_sum[i] > numbers_sum[i-1]:
             increased += 1
 
-    print("Part 2: " + str(increased))
+    return_string = ("Part 2: " + str(increased))
+
+    return return_string
 
 if __name__ == "__main__":
-    part_1()
-    part_2()
+    print(part_1())
+    print(part_2())
