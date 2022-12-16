@@ -26,4 +26,26 @@ score_sum = sum(
     [strategy_guide[line[0]][line[2]] for line in guide_line if line.strip()]
 )
 
-print(score_sum)
+print("Part 1: " + str(score_sum))
+
+# PART 2
+# X = lose
+# Y = draw
+# Z = win
+
+# Rock = 1
+# Paper = 2
+# Scissors = 3
+
+strategy_guide_2 = {
+    "A": {"X": 0 + 3, "Y": 3 + 1, "Z": 6 + 2},
+    "B": {"X": 0 + 1, "Y": 3 + 2, "Z": 6 + 3},
+    "C": {"X": 0 + 2, "Y": 3 + 3, "Z": 6 + 1},
+}
+
+
+score_sum = sum(
+    [strategy_guide_2[line[0]][line[2]] for line in guide_line if line.strip()]
+)
+
+print("Part 2: " + str(score_sum))
