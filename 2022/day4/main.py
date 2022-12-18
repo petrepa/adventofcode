@@ -49,3 +49,16 @@ for line in modified_list:
         number_of_overlapping_lines += 1
 
 print(number_of_overlapping_lines)
+
+sum_of_overlapping = sum(
+    1
+    for line in modified_list
+    if intersection_of_ranges(
+        int(line[0][0]),
+        int(line[0][1]),
+        int(line[1][0]),
+        int(line[1][1]),
+    )
+)
+
+print(sum_of_overlapping)
