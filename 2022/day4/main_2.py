@@ -11,17 +11,17 @@ pairs = [
 ]
 
 
-print(type(pairs[0]))
+#      a|---A---|b
+#     c|----B----|d
+
+#     a|----A----|b
+#      c|---B---|d
 
 
 def intersection_of_ranges(a: int, b: int, c: int, d: int):
-    x = range(a, b)
-    y = range(c, d)
-    xs = set(x)
-
-    interseciton = xs.intersection(y)
-
-    if interseciton == set(y) or interseciton == set(x):
+    if a >= c and b <= d:
+        return True
+    elif a <= c and b >= d:
         return True
     else:
         return False
