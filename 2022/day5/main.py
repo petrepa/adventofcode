@@ -36,27 +36,26 @@ for instruction in instructions.split("\n"):
 
 
 for times, from_stack, to_stack in instruct:
-    for time in times:
-        print(
-            "Time: " + str(time) + " From: " + str(from_stack) + " To: " + str(to_stack)
-        )
-        print(stacks[int(from_stack)])
-        try:
-            stacks[int(to_stack)].append(stacks[int(from_stack)][-1])
-            del stacks[int(from_stack)][-1]
-        except:
-            pass
+    number_of_items_from_stack = len(stacks[int(from_stack)]) - int(times)
+    print("Time: " + str(times) + " From: " + str(from_stack) + " To: " + str(to_stack))
+    # print(stacks[int(from_stack)])
 
-top_in_stacks = []
-for elem in stacks:
-    top_in_stacks.append(stacks[elem][-1])
+    stacks[int(to_stack)].extend(stacks[int(from_stack)][-int(times) :][::1])
 
-print("".join(top_in_stacks))
+    del stacks[int(from_stack)][-int(times) :]
 
-# print(stacks[1])
-# print(stacks[1][0:])
-# print((stacks[2][-1]))
-# stacks[1].append(stacks[2][-1])
-# print(stacks[1])
-# del stacks[1][-1]
-# print(stacks[1])
+
+for stack in stacks:
+    try:
+        print(stacks[stack][-1])
+    except:
+        pass
+
+print(stacks[6])
+print(stacks[7])
+print("Moving")
+stacks[7].extend(stacks[6][-5:][::1])
+print(stacks[7])
+print("Deleting")
+del stacks[6][-5:]
+print(stacks[6])
