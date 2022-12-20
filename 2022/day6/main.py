@@ -5,14 +5,15 @@ data = get_data(day=6, year=2022)
 four_character = data[0:4]
 
 
-def find_character_index():
+def find_character_index(distinct_characters: int):
     for i in range(0, len(data)):
         four = []
-        four_characters = data[i : i + 4]
+        four_characters = data[i : i + distinct_characters]
         for character in four_characters:
             four.append(four_characters.count(character))
-        if four.count(1) == 4:
-            return i + 4
+        if four.count(1) == distinct_characters:
+            return i + distinct_characters
 
 
-print(find_character_index())
+print("Part 1: " + str(find_character_index(4)))
+print("Part 2: " + str(find_character_index(14)))
